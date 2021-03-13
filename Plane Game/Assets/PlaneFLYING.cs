@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlaneFLYING : MonoBehaviour
 {
-    
 
+    //
+    public Rigidbody rb;
     //speeds
     public float forwardSpeed=25f;
     public float strafeSpeed=7f;
@@ -38,6 +39,12 @@ public class PlaneFLYING : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        rb.centerOfMass = Vector3.zero;
+        rb.inertiaTensorRotation = Quaternion.identity;
+
+
+
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
         ourRotation = GetComponent<Vector3>();
